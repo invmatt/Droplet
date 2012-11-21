@@ -3,10 +3,10 @@ Droplet
 
 Droplet is a customisable, responsive navigation plugin aimed at simplifying and standardising navigation across multiple devices.
 
-<h2>Usage</h2>
+<h3>Usage</h3>
 <pre>$.droplet('#selector');</pre>
 
-<h2>Extend</h2>
+<h3>Extend</h3>
 
 <pre>
 'buttonID': 'droplet-menu',		// The default button ID
