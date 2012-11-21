@@ -1,5 +1,6 @@
 /*
 *	Droplet.js
+*	https://github.com/invmatt/Droplet
 *	Version: 1.0.0
 *	Usage: $.droplet('#selector');
 *	Extend: $.droplet('#selector', {options});
