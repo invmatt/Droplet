@@ -1,6 +1,6 @@
 /*
-*	Droplet.js (Formally Cubik Responsive Navigation)
-*	Version: 1.7.0 / 1.0.0 Droplet
+*	Droplet.js
+*	Version: 1.0.0
 *	Usage: $.droplet('#selector');
 *	Extend: $.droplet('#selector', {options});
 */
