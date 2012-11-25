@@ -39,12 +39,6 @@
 		$(window).resize(windowSize);
 		
 		function windowSize() {
-			
-			// As < IE8 doesn't support Media Queries if Modernizr is turned on use window width option instead
-			
-				if ($.browser.msie  && parseInt($.browser.version, 10) === 8 && parseInt($.browser.version, 10) === 7) {
-					$('body').addClass('oldie');
-				}
 
 			if ( (config.Modernizr == false && $(window).width() <= config.smallScreen) || (config.Modernizr == true && Modernizr.mq('only screen and (max-width : '+ config.smallScreen +'px)')) ) {
 				// (window).width() doesn't play nicely with scrollbars, modernizr can be used to set the correct breakpoints regardless of scrollbars or not.
