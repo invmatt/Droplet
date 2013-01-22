@@ -1,7 +1,7 @@
 /*
 *	Droplet.js
 *	https://github.com/invmatt/Droplet
-*	Version: 1.0.0
+*	Version: 1.0.1
 *	Usage: $.droplet('#selector');
 *	Extend: $.droplet('#selector', {options});
 */
@@ -58,10 +58,12 @@
 						
 						if ($(child).css('display') == 'none') {
 							$(child).slideDown("fast");
+							$("#" + config.buttonID + "").addClass("active");
 						}
 						
 						else if ($(child).css('display') == 'block') {
 							$(child).slideUp("fast");
+							$("#" + config.buttonID + "").removeClass("active");
 						}
 						
 					});
