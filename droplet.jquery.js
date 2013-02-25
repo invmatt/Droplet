@@ -1,7 +1,7 @@
 /*
 * Droplet.js
 * https://github.com/invmatt/Droplet
-* Version: 1.2.0
+* Version: 1.2.1
 * Usage: $.droplet('#selector');
 * Extend: $.droplet('#selector', {options});
 */
@@ -28,6 +28,7 @@
 		var childOfChild = obj.children('li > ul');
 		var menuSize = "";
 		var i = 0;
+		var navLocation = (obj).parent();
 
 		if (config.Modernizr == true) {
 			$("body").addClass("droplet-enabled-mdnz");
@@ -132,6 +133,11 @@
 					$(child).css('display', 'block');
 					$(obj).removeClass(config.mode);
 					$("#" + config.buttonID + "").remove();
+					
+					if (config.panel) {
+						$(navLocation).append($(obj));
+						$(obj).removeAttr('style')
+					}
 
 				}
 
