@@ -1,9 +1,6 @@
 /*
-* Droplet.js
+* Droplet.js / 1.2.2
 * https://github.com/invmatt/Droplet
-* Version: 1.2.2
-* Usage: $.droplet('#selector');
-* Extend: $.droplet('#selector', {options});
 */
 
 (function($) {
@@ -30,22 +27,15 @@
 		var i = 0;
 		var navLocation = (obj).parent();
 		var animateSpeed = 500;
-
-		if (config.Modernizr == true) {
-			$("body").addClass("droplet-enabled-mdnz");
-		}
-
-		else {
-			$("body").addClass("droplet-enabled");
-		}
+		
+		$("body").addClass("droplet-enabled");
 
 		$(function() { windowSize(); });
 		$(window).resize(windowSize);
 
 		function windowSize() {
 
-			if ((config.Modernizr == false && $(window).width() <= config.smallScreen) || (config.Modernizr == true && Modernizr.mq('only screen and (max-width : ' + config.smallScreen + 'px)'))) {
-				// (window).width() doesn't play nicely with scrollbars, modernizr can be used to set the correct breakpoints regardless of scrollbars or not.
+			if ((!config.Modernizr && $(window).width() <= config.smallScreen) || (config.Modernizr && Modernizr.mq('only screen and (max-width : ' + config.smallScreen + 'px)'))) {
 
 				if (menuSize != "small") {
 					menuSize = "small";
@@ -72,7 +62,7 @@
 					}
 
 					if (config.panel) {
-						$("html").prepend($(obj));
+						$("body").prepend($(obj));
 						$("body").prepend('<div id="' + config.buttonID + '">Main Menu</div>');
 						$(obj).addClass("panel-closed");
 
@@ -127,7 +117,7 @@
 			}
 
 
-			else if ((config.Modernizr == false && $(window).width() >= config.largeScreen) || (config.Modernizr == true && Modernizr.mq('only screen and (min-width : ' + config.largeScreen + 'px)'))) {
+			else if ((!config.Modernizr && $(window).width() >= config.largeScreen) || (config.Modernizr && Modernizr.mq('only screen and (min-width : ' + config.largeScreen + 'px)'))) {
 				if (menuSize != "large") {
 					menuSize = "large";
 
