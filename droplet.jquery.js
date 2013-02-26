@@ -1,7 +1,7 @@
 /*
 * Droplet.js
 * https://github.com/invmatt/Droplet
-* Version: 1.2.1
+* Version: 1.2.2
 * Usage: $.droplet('#selector');
 * Extend: $.droplet('#selector', {options});
 */
@@ -29,6 +29,7 @@
 		var menuSize = "";
 		var i = 0;
 		var navLocation = (obj).parent();
+		var animateSpeed = 500;
 
 		if (config.Modernizr == true) {
 			$("body").addClass("droplet-enabled-mdnz");
@@ -78,7 +79,7 @@
 						$(obj).css({
 							width: '' + config.panelPosition + 'px',
 							left: '-' + config.panelPosition + 'px',
-							position: "absolute"
+							position: "fixed"
 						});
 
 						$("#" + config.buttonID + "").click(function() {
@@ -89,11 +90,11 @@
 
 							$(obj).animate({
 								left: '-' + config.panelPosition + 'px'
-							}, 500);
+							}, animateSpeed);
 
 							$("body").animate({
 								left: '0'
-							}, 500);
+							}, animateSpeed);
 
 							$(child).css("display", "none");
 						} else {
@@ -102,11 +103,11 @@
 
 								$(obj).animate({
 									left: '0px'
-								}, 500);
+								}, animateSpeed);
 
 								$("body").animate({
 									left: '' + config.panelPosition + 'px'
-								}, 500);
+								}, animateSpeed);
 
 								$(child).css("display", "block");
 							}
@@ -117,8 +118,8 @@
 
 					$(child).css('display', 'none');
 
-					if (config.subNav == true) {
-						// Sub navigation stuff
+					if (config.subNav) {
+						// WIP
 					}
 
 				}
