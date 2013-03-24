@@ -63,7 +63,7 @@
 
 					if (config.panel) {
 						$("body").prepend($(obj));
-						$("body").prepend('<div id="' + config.buttonID + '">Main Menu</div>');
+						$("body").prepend('<div id="' + config.buttonID + '">Navigation</div>');
 						$(obj).addClass("panel-closed");
 
 						$(obj).css({
@@ -109,7 +109,8 @@
 					$(child).css('display', 'none');
 
 					if (config.subNav) {
-						// WIP
+						$("body").prepend('<div id="droplet-subnav">Section navigation</div>');
+						$(config.subClass).css("display", "none");
 					}
 
 				}
