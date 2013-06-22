@@ -1,5 +1,5 @@
 /*
-* Droplet.js / 1.2.2
+* Droplet.js / 1.2.3
 * https://github.com/invmatt/Droplet
 */
 
@@ -7,6 +7,7 @@
 	$.droplet = function(selector, settings) {
 		var config = {
 			'buttonID': 'droplet-menu', 	// The default button ID
+			'buttonName': 'Main Menu',	// Visible name for the button
 			'mode': 'droplet-responsive', // Class added once the smaller breakpoint has been reached
 			'smallScreen': '768',
 			'largeScreen': '769',
@@ -43,7 +44,7 @@
 
 					// Panel Style
 					if (!config.panel) {
-						$(obj).prepend('<div id="' + config.buttonID + '">Main Menu</div>');
+						$(obj).prepend('<div id="' + config.buttonID + '">'+ config.buttonName +'</div>');
 
 						$("#" + config.buttonID + "").click(function() {
 
