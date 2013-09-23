@@ -1,5 +1,5 @@
 /*
-* Droplet.js / 1.2.3
+* Droplet.js / 1.2.4
 * https://github.com/invmatt/Droplet
 */
 
@@ -110,7 +110,7 @@
 					$(child).css('display', 'none');
 
 					if (config.subNav) {
-						$("body").prepend('<div id="droplet-subnav">Section navigation</div>');
+						$(config.subClass).before('<div id="droplet-subnav">Section navigation</div>');
 						$(config.subClass).css("display", "none");
 					}
 
