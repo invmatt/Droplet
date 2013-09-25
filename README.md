@@ -19,3 +19,7 @@ Droplet is a customisable, responsive navigation plugin aimed at simplifying and
 'panel': false, // Create a panel style menu
 'panelPosition': '250'
 </pre>
+
+<h3>Demo</h3>
+
+<p>Coming soon</p>
