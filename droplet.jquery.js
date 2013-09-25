@@ -112,6 +112,11 @@
 					if (config.subNav) {
 						$(config.subClass).before('<div id="droplet-subnav">Section navigation</div>');
 						$(config.subClass).css("display", "none");
+						
+            $("#droplet-subnav").click(function() {
+              $(config.subClass).toggle("fast");
+            });
+						
 					}
 
 				}
