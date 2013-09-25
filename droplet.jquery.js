@@ -1,5 +1,5 @@
 /*
-* Droplet.js / 1.2.4
+* Droplet.js / 1.2.5
 * https://github.com/invmatt/Droplet
 */
 
