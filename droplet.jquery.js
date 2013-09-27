@@ -1,5 +1,5 @@
 /*
-* Droplet.js / 1.2.5
+* Droplet.js / 1.2.6
 * https://github.com/invmatt/Droplet
 */
 
@@ -130,7 +130,7 @@
 
 					$(child).css('display', 'block');
 					$(obj).removeClass(config.mode);
-					$("#" + config.buttonID + "").remove();
+					$("#" + config.buttonID + ", #droplet-subnav").remove();
 					
 					if (config.panel) {
 						$(navLocation).append($(obj));
