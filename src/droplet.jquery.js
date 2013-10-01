@@ -1,5 +1,5 @@
 /*
-* Droplet v1.2.7
+* Droplet v1.2.8
 * http://invmatt.github.io/Droplet
 *
 * Library independent version of Droplet for jQuery
@@ -120,6 +120,14 @@
 
 								$(child).css("display", "block");
 							}
+							
+							if (config.subNav) {
+							  
+                if ($(config.subClass).css('display') == 'block') {
+                  $(config.subClass).hide();
+                }
+							  
+							}
 
 						});
 
@@ -128,11 +136,18 @@
 					$(child).css('display', 'none');
 
 					if (config.subNav) {
+					  
 						$(config.subClass).before('<div id="droplet-subnav">Section navigation</div>');
 						$(config.subClass).css("display", "none");
 						
             $("#droplet-subnav").click(function() {
+              
               $(config.subClass).slideToggle("fast");
+              
+              if ($(obj).css('display') == 'block') {
+                $(child).hide();
+              }
+              
             });
 						
 					}
