@@ -132,7 +132,7 @@
 						$(config.subClass).css("display", "none");
 						
             $("#droplet-subnav").click(function() {
-              $(config.subClass).toggle("fast");
+              $(config.subClass).slideToggle("fast");
             });
 						
 					}
@@ -146,7 +146,8 @@
 				if (menuSize != "large") {
 					menuSize = "large";
 
-					$(child, config.subClass).css('display', 'block');
+					$(child).css('display', 'block');
+					$(config.subClass).show();
 					$(obj).removeClass(config.mode);
 					$("#" + config.buttonID + ", #droplet-subnav").remove();
 					
