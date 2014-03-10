@@ -36,148 +36,148 @@
 			'panelPosition': '250'
 		};
 
-		if (settings) { $.extend(config, settings); }
+if (settings) { $.extend(config, settings); }
 
-		// Set some basic vars
-		var obj = $(selector);
-		var child = obj.children('ul');
-		var childOfChild = obj.children('li > ul');
-		var menuSize = "";
-		var i = 0;
-		var navLocation = (obj).parent();
-		var animateSpeed = 500;
-		
-		$("body").addClass("droplet-enabled");
+// Set some basic vars
+var obj = $(selector);
+var child = obj.children('ul');
+var childOfChild = obj.children('li > ul');
+var menuSize = "";
+var i = 0;
+var navLocation = (obj).parent();
+var animateSpeed = 500;
 
-		$(function() { windowSize(); });
-		$(window).resize(windowSize);
+$("body").addClass("droplet-enabled");
 
-		function windowSize() {
+$(function() { windowSize(); });
+$(window).resize(windowSize);
 
-			if ((!config.Modernizr && $(window).width() <= config.smallScreen) || (config.Modernizr && Modernizr.mq('only screen and (max-width : ' + config.smallScreen + 'px)'))) {
+function windowSize() {
 
-				if (menuSize != "small") {
-					menuSize = "small";
-					$(obj).addClass(config.mode);
+	if ((!config.Modernizr && $(window).width() <= config.smallScreen) || (config.Modernizr && Modernizr.mq('only screen and (max-width : ' + config.smallScreen + 'px)'))) {
 
-					// Panel Style
-					if (!config.panel) {
-						$(obj).prepend('<div id="' + config.buttonID + '">'+ config.buttonName +'</div>');
+		if (menuSize != "small") {
+			menuSize = "small";
+			$(obj).addClass(config.mode);
 
-						$("#" + config.buttonID + "").click(function() {
+// Panel Style
+if (!config.panel) {
+	$(obj).prepend('<div id="' + config.buttonID + '">'+ config.buttonName +'</div>');
 
-							if ($(child).css('display') == 'none') {
-								$(child).slideDown("fast");
-								$("#" + config.buttonID + "").addClass("active");
-							}
+	$("#" + config.buttonID + "").click(function() {
 
-							else if ($(child).css('display') == 'block') {
-								$(child).slideUp("fast");
-								$("#" + config.buttonID + "").removeClass("active");
-							}
+		if ($(child).css('display') == 'none') {
+			$(child).slideDown("fast");
+			$("#" + config.buttonID + "").addClass("active");
+		}
 
-						});
+		else if ($(child).css('display') == 'block') {
+			$(child).slideUp("fast");
+			$("#" + config.buttonID + "").removeClass("active");
+		}
 
-					}
+	});
 
-					if (config.panel) {
-						$("body").prepend($(obj));
-						$("body").prepend('<div id="' + config.buttonID + '">Navigation</div>');
-						$(obj).addClass("panel-closed");
+}
 
-						$(obj).css({
-							width: '' + config.panelPosition + 'px',
-							left: '-' + config.panelPosition + 'px',
-							position: "fixed"
-						});
+if (config.panel) {
+	$("body").prepend($(obj));
+	$("body").prepend('<div id="' + config.buttonID + '">Navigation</div>');
+	$(obj).addClass("panel-closed");
 
-						$("#" + config.buttonID + "").click(function() {
+	$(obj).css({
+		width: '' + config.panelPosition + 'px',
+		left: '-' + config.panelPosition + 'px',
+		position: "fixed"
+	});
 
-						if ($(obj).hasClass('panel-open')) {
-							$(obj).removeClass('panel-open');
-							$(obj).addClass('panel-closed');
+	$("#" + config.buttonID + "").click(function() {
 
-							$(obj).animate({
-								left: '-' + config.panelPosition + 'px'
-							}, animateSpeed);
+		if ($(obj).hasClass('panel-open')) {
+			$(obj).removeClass('panel-open');
+			$(obj).addClass('panel-closed');
 
-							$("body").animate({
-								left: '0'
-							}, animateSpeed);
+			$(obj).animate({
+				left: '-' + config.panelPosition + 'px'
+			}, animateSpeed);
 
-							$(child).css("display", "none");
-						} else {
-								$(obj).removeClass('panel-closed');
-								$(obj).addClass('panel-open');
+			$("body").animate({
+				left: '0'
+			}, animateSpeed);
 
-								$(obj).animate({
-									left: '0px'
-								}, animateSpeed);
+			$(child).css("display", "none");
+		} else {
+			$(obj).removeClass('panel-closed');
+			$(obj).addClass('panel-open');
 
-								$("body").animate({
-									left: '' + config.panelPosition + 'px'
-								}, animateSpeed);
+			$(obj).animate({
+				left: '0px'
+			}, animateSpeed);
 
-								$(child).css("display", "block");
-							}
-							
-							if (config.subNav) {
-							  
-                if ($(config.subClass).css('display') == 'block') {
-                  $(config.subClass).hide();
-                }
-							  
-							}
+			$("body").animate({
+				left: '' + config.panelPosition + 'px'
+			}, animateSpeed);
 
-						});
+			$(child).css("display", "block");
+		}
 
-					}
+		if (config.subNav) {
 
-					$(child).css('display', 'none');
-
-					if (config.subNav) {
-					  
-						$(config.subClass).before('<div id="droplet-subnav">Section navigation</div>');
-						$(config.subClass).css("display", "none");
-						
-            $("#droplet-subnav").click(function() {
-              
-              $(config.subClass).slideToggle("fast");
-              
-              if ($(obj).css('display') == 'block') {
-                $(child).hide();
-              }
-              
-            });
-						
-					}
-
-				}
-
-			}
-
-
-			else if ((!config.Modernizr && $(window).width() >= config.largeScreen) || (config.Modernizr && Modernizr.mq('only screen and (min-width : ' + config.largeScreen + 'px)'))) {
-				if (menuSize != "large") {
-					menuSize = "large";
-
-					$(child).css('display', 'block');
-					$(config.subClass).show();
-					$(obj).removeClass(config.mode);
-					$("#" + config.buttonID + ", #droplet-subnav").remove();
-					
-					if (config.panel) {
-						$(navLocation).append($(obj));
-						$(obj).removeAttr('style')
-					}
-
-				}
-
+			if ($(config.subClass).css('display') == 'block') {
+				$(config.subClass).hide();
 			}
 
 		}
 
-		return this;
-	};
+	});
+
+}
+
+$(child).css('display', 'none');
+
+if (config.subNav) {
+
+	$(config.subClass).before('<div id="droplet-subnav">Section navigation</div>');
+	$(config.subClass).css("display", "none");
+
+	$("#droplet-subnav").click(function() {
+
+		$(config.subClass).slideToggle("fast");
+
+		if ($(obj).css('display') == 'block') {
+			$(child).hide();
+		}
+
+	});
+
+}
+
+}
+
+}
+
+
+else if ((!config.Modernizr && $(window).width() >= config.largeScreen) || (config.Modernizr && Modernizr.mq('only screen and (min-width : ' + config.largeScreen + 'px)'))) {
+	if (menuSize != "large") {
+		menuSize = "large";
+
+		$(child).css('display', 'block');
+		$(config.subClass).show();
+		$(obj).removeClass(config.mode);
+		$("#" + config.buttonID + ", #droplet-subnav").remove();
+
+		if (config.panel) {
+			$(navLocation).append($(obj));
+			$(obj).removeAttr('style')
+		}
+
+	}
+
+}
+
+}
+
+return this;
+};
 
 })(jQuery);
