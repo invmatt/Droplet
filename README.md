@@ -3,6 +3,10 @@ Droplet
 
 Droplet is a customisable, responsive navigation plugin aimed at simplifying and standardising navigation across multiple devices.
 
+<h3>Download</h3>
+
+Droplet should be downloaded from the <a href="https://github.com/invmatt/Droplet/releases">releases</a> section. All other versions commited should be treated as incomplete / not suitable for production.
+
 <h3>Usage</h3>
 <pre>$.droplet('#selector');
 
