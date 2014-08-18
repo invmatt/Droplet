@@ -1,5 +1,5 @@
 /*
- * Droplet v1.2.9-alpha
+ * Droplet v1.2.91
  * http://invmatt.github.io/Droplet
  *
  * This program is free software: you can redistribute it and/or modify
@@ -24,7 +24,7 @@
             'mode': 'droplet-responsive',	// Class added once the smaller breakpoint has been reached
             'smallScreen': '768',           // Breakpoint when Droplet should initialise
             'largeScreen': '769',           // Breakpoint when Droplet should revert to standard navigation
-            'Modernizr': false,			    // Adds support for Modernizr Media Queries (recommended)
+            'Modernizr': true,			    // Adds support for Modernizr Media Queries (recommended)
             'subNav': false,			    // If you have sub-navigation set this to true
             'subClass': '',			        // Class of the containing sub navigation UL
             'panel': false,			        // Create a panel style menu
